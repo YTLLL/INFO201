@@ -1,0 +1,34 @@
+---
+title: "2018 Shootings Report"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = F)
+source("analysis.R")
+```
+
+This report display the mass shooting incident data in 2018. In 2018, there are total `r total_shootings` occured and `r total_lost` lives were taken in these incidents. By counting the total live lost and injured for each cities, I conclude that `r most_impact` is most impacted by shooting incidents; nine other strongly impacted cities are also listed on the summary table. Besides, I also discovered that `r most_shootings_state` have most shooting happened. In order to reveal the 2018 shooting issue, more detailed data and incident will be display under.
+
+## The Summary Table of Top Ten Cities of Shootings
+```{r}
+kable(by_city, col.names = c("City", "Number of Shootings"))
+```
+The table reveals ten cities where shootings happen most in the United States, which indicates people and traveler to avoid those cities.
+
+## Florida Shooting Incident
+At `r most_killed$date`, a tragic mass shooting happened at high school in `r most_killed$city`, `r most_killed$state`. The high school locates at `r most_killed$address`, and a 19-year-old teen gunman [Nikolas Cruz](https://www.nbcnews.com/news/us-news/police-respond-shooting-parkland-florida-high-school-n848101) was accused for this mass shooting. In this mass shooting, there are `r most_killed$num_injured` people were injured and `r most_killed$num_killed` people were killed. In most news, the injured number were [14](https://www.foxnews.com/us/florida-school-shooting-timeline), and this trigic shooting began at [2:53pm and ended at 4:27pm](https://www.foxnews.com/us/florida-school-shooting-timeline). Through this mass shooting, the bloody data reflect the importance of gun control is necessary.
+
+## Shootings Map
+```{r}
+shooting_map
+```
+The map provide clear visual representation base on geography, the size and color of circular markers indicates the total damage(injured number plus lost number) caused by each shooting, hover over or click marker for more information.
+
+## Plot
+```{r}
+by_state_plot
+```
+The gun control has been a long issue unsolved, people might wonder what are the states that suffered from shootings most. The plot reveals ten states that happened most shooting incidents in 2018. This urges those ten states' people and governments putting more effort on gun control issue.
+

@@ -1,0 +1,36 @@
+---
+title: "A7 Collaboration"
+author: "ZeXin Lv, RuiJun Guo, YuTian Lei, Haowen Bao"
+date: "2019/2/24"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+source("scripts/function.R")
+source("scripts/chart_1.R")
+source("scripts/chart_2.R")
+```
+
+```{r ,include=FALSE}
+data <- read.csv("data/wdvp.csv",  stringsAsFactors = F)
+intro <- intro_function(data)
+chart_1 <- chart_1(data)
+chart_2 <- chart_2(data)
+```
+
+## Overview
+
+This is a brief report using dataset from from World Data Visualization competition([source](https://wdvp.worldgovernmentsummit.org)). 
+The data reveals that the country with the higest GDP per capita is `r intro$gdp_top$country_name`, with the GDP per capita `r intro$gdp_top$gdp_per_capita_ppp`. And the country with the highest gini index is `r intro$gini_index_top$country_name`, with the gini index `r intro$gini_index_top$gini_index`. The country with the highest happiness report score is `r intro$happiness_report_score_top$country_name`, with the score `r intro$happiness_report_score_top$world_happiness_report_score`.
+
+## Chart 1
+
+To find the relationship between GDP per capita and world happiness report score, here is a chart of of world data visualization competition:
+`r chart_1`
+
+## Chart 2
+
+To find the relationship between world happiness report score and unemployment percentage, here is a chart of of world data visualization competition:
+`r chart_2`

@@ -1,0 +1,36 @@
+---
+title: "Who Represents You?"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = TRUE)
+input_address = "4616 22nd Ave NE, seattle"
+input_state = "WA"
+```
+
+##Your Representatives
+
+This is a report about the political representatives based on the address in *Seattle, WA*. This report draws upon data from the [ProPublica API](https://projects.propublica.org/api-docs/congress-api/) and the [Google Civic Data API](https://developers.google.com/civic-information/). As an overview, here is a summary of who represents the address given (from the local to the national level).
+
+```{r, message=FALSE, echo=FALSE, warning=FALSE}
+source("civic-info.R")
+kable(civic(input_address))
+```
+
+## House of Representatives
+
+Now let's take a look at **all** of the congressional representatives (in the **House of Representatives**, *not* the Senate) for *Washington* state where the address was given. We see this breakdown by gender and political party for those members of the House:
+
+```{r,message=FALSE, echo=FALSE, fig.width=8, fig.height=6}
+source("propublica.R")
+gender_plot
+party_plot
+```
+
+## `r representative_name`
+
+Here is one representative of current state, *`r representative_name`*. The representative is `r age` years old, learn more about this representative on twitter at [`r twitter`](`r twitter_site`). According to the data, in the most recent 20 congressional votes, the representative was in accordance with the majority `r agree_percent` of the time.
+
+

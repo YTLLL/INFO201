@@ -1,0 +1,6 @@
+"","first_names","math_grades","spanish_grades","grade_diff","better_at_math"
+"1","Bill",60,65,-5,FALSE
+"2","Steve",70,75,-5,FALSE
+"3","Ryan",80,85,-5,FALSE
+"4","Jeff",90,95,-5,FALSE
+"5","Robert",100,98,2,TRUE
